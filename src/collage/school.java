@@ -10,7 +10,7 @@ public class School {
 	private int phoneNumber;
 	
 	private ArrayList<Department> departmentList = new ArrayList<>();
-
+School(){System.out.println("do you want to create school system y/n");}
 	//----------------------- seters and geters-------------------------
 
 	public String getLocation() {

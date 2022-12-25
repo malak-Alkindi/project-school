@@ -14,9 +14,10 @@ public class main {
 int schoolIndex = 0;
 			boolean schoolFlag = true;
 			List<School> schoolList = new ArrayList<>();
+			
 		while (flag) {
-
-			System.out.println("do you want to create school system y/n");
+			School s =new School();
+			
 			
 
 			if (sc.nextLine().equals("y")) {
@@ -24,7 +25,7 @@ int schoolIndex = 0;
 				System.out.println("          <add first school>");
 				System.out.println();
 				while (schoolFlag) {
-					schoolList.add(new School());
+					schoolList.add(s);
 					School schoolObj = schoolList.get(schoolIndex);
 					System.out.println("what is the location of the school ?");
 					schoolObj.setLocation(sc.nextLine());
