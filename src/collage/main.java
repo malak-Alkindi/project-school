@@ -15,11 +15,12 @@ public class main {
 		while (flag) {
 
 			System.out.println("do you want to create sschool system y/n");
-			if (sc.nextLine().equals("y")) {
-				int schoolIndex = 0;
-				boolean schoolFlag = true;
-				ArrayList<school> schoolList = new ArrayList<>();
+			int schoolIndex = 0;
+			boolean schoolFlag = true;
+			ArrayList<school> schoolList = new ArrayList<>();
 
+			if (sc.nextLine().equals("y")) {
+			
 				System.out.println("          <add first school>");
 				System.out.println();
 				while (schoolFlag) {
@@ -166,10 +167,54 @@ public class main {
 
 			} else {
 				flag = false;
-				System.out.println("bye");
+				System.out.println("****************** school system report ******************");
+				System.out.println();
+				for(int sci=0;sci<schoolList.size();sci++) {
+				
+					school sobj=schoolList.get(sci);
+			System.out.println("school number ("+(sci+1)+")");
+			System.out.println("school name         :"+sobj.getLocation());
+			System.out.println("school phone number :"+sobj.getPhoneNumber());
+			System.out.println();
+					for(int di=0;di<sobj.getDepartmentList().size();di++) {
+						Department dobj=sobj.getDepartmentList().get(di);
+						System.out.println("department number ("+(di+1)+")");
+						System.out.println("department floor :"+dobj.getFloor());
+						System.out.println("department name  :"+dobj.getName());
+						System.out.println();
+						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
+							Teacher tobj=dobj.getTeachertList().get(ti);
+							System.out.println("teacher number ("+(ti+1)+")");
+							System.out.println("teacher name :"+tobj.getName());
+							System.out.println("teacher type :"+tobj.getType());
+							for(int si=0;si<tobj.getStudentList().size();si++) {
+								Student stobj=tobj.getStudentList().get(si);
+								System.out.println("Student number("+(si+1)+")");
+								System.out.println("Student name :"+stobj.getName());
+								System.out.println("Student age  :"+stobj.getAge());
+								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
+									Course cobj=stobj.getCourseList().get(ci);
+									System.out.println("course number ("+(ci+1)+")");
+									System.out.println("course name :"+cobj.getName());
+									System.out.println("course id   :"+cobj.getId());
+									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
+										Mark mobj=cobj.getMarkList().get(mi);
+										System.out.println("mark number ("+(mi+1)+")");
+										System.out.println("mark namr  :"+mobj.getSubjectName());
+										System.out.println("mark score :"+mobj.getMark());
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 
 		} // while loop
+		
+
 
 	}
+	
+	
 }
