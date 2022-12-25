@@ -11,13 +11,13 @@ public class main {
 		Scanner sc = new Scanner(System.in);
 
 		boolean flag = true;
-
+int schoolIndex = 0;
+			boolean schoolFlag = true;
+			List<school> schoolList = new ArrayList<>();
 		while (flag) {
 
 			System.out.println("do you want to create sschool system y/n");
-			int schoolIndex = 0;
-			boolean schoolFlag = true;
-			ArrayList<school> schoolList = new ArrayList<>();
+			
 
 			if (sc.nextLine().equals("y")) {
 			
@@ -168,7 +168,7 @@ public class main {
 			} else {
 				flag = false;
 				System.out.println("****************** school system report ******************");
-				System.out.println();
+				System.out.println(schoolList.size());
 				for(int sci=0;sci<schoolList.size();sci++) {
 				
 					school sobj=schoolList.get(sci);
