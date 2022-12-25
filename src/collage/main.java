@@ -9,14 +9,14 @@ public class main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
+		Error e=new Error();
 		boolean flag = true;
 int schoolIndex = 0;
 			boolean schoolFlag = true;
 			List<School> schoolList = new ArrayList<>();
 		while (flag) {
 
-			System.out.println("do you want to create sschool system y/n");
+			System.out.println("do you want to create school system y/n");
 			
 
 			if (sc.nextLine().equals("y")) {
@@ -36,7 +36,7 @@ int schoolIndex = 0;
 					boolean departmetFlag = true;
 					ArrayList<Department> departmentList = new ArrayList<>();
 
-					System.out.println("          <add first department>");
+					System.out.println("          <add first department> to school number :"+schoolIndex);
 					System.out.println();
 					while (departmetFlag) {
 						departmentList.add(new Department());
@@ -52,7 +52,7 @@ int schoolIndex = 0;
 						boolean teacherFlag = true;
 						ArrayList<Teacher> teacherList = new ArrayList<>();
 
-						System.out.println("          <add first treacher>");
+						System.out.println("          <add first treacher>to school number : "+schoolIndex);
 						System.out.println();
 						while (teacherFlag) {
 							teacherList.add(new Teacher());
@@ -186,27 +186,27 @@ int schoolIndex = 0;
 						System.out.println();
 						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
 							Teacher tobj=dobj.getTeachertList().get(ti);
-							System.out.println(Error.cyan+"teacher number ("+(ti+1)+")"+Error.black);
-							System.out.println("teacher name :"+Error.blue+tobj.getName()+Error.black);
-							System.out.println("teacher type :"+Error.blue+tobj.getType());
+							System.out.println(Error.cyan+"   teacher number ("+(ti+1)+")"+Error.black);
+							System.out.println("   teacher name :"+Error.blue+tobj.getName()+Error.black);
+							System.out.println("   teacher type :"+Error.blue+tobj.getType());
 							System.out.println();
 							for(int si=0;si<tobj.getStudentList().size();si++) {
 								Student stobj=tobj.getStudentList().get(si);
-								System.out.println(Error.cyan+"Student number("+(si+1)+")"+Error.black);
-								System.out.println("Student name :"+Error.blue+stobj.getName()+Error.black);
-								System.out.println("Student age  :"+Error.blue+stobj.getAge());
+								System.out.println(Error.cyan+"      Student number("+(si+1)+")"+Error.black);
+								System.out.println("      Student name :"+Error.blue+stobj.getName()+Error.black);
+								System.out.println("      Student age  :"+Error.blue+stobj.getAge());
 								System.out.println();
 								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
 									Course cobj=stobj.getCourseList().get(ci);
-									System.out.println(Error.cyan+"course number ("+(ci+1)+")"+Error.black);
-									System.out.println("course name :"+Error.blue+cobj.getName()+Error.black);
-									System.out.println("course id   :"+Error.blue+cobj.getId());
+									System.out.println(Error.cyan+"         course number ("+(ci+1)+")"+Error.black);
+									System.out.println("         course name :"+Error.blue+cobj.getName()+Error.black);
+									System.out.println("         course id   :"+Error.blue+cobj.getId());
 									System.out.println();
 									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
 										Mark mobj=cobj.getMarkList().get(mi);
-										System.out.println(Error.cyan+"mark number ("+(mi+1)+")"+Error.black);
-										System.out.println("mark namr  :"+Error.blue+mobj.getSubjectName()+Error.black);
-										System.out.println("mark score :"+Error.blue+mobj.getMark());
+										System.out.println(Error.cyan+"            mark number ("+(mi+1)+")"+Error.black);
+										System.out.println("            mark namr  :"+Error.blue+mobj.getSubjectName()+Error.black);
+										System.out.println("            mark score :"+Error.blue+mobj.getMark());
 										System.out.println();
 									}
 								}

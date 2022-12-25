@@ -1,6 +1,10 @@
 package collage;
 
 public class Error {
+	
+	Error(){
+		System.out.println("here we create school system");
+	}
 	public static final String rest = "\u001B[0m";
 	public static final String black = "\u001B[30m";
 	public static final String red = "\u001B[31m";

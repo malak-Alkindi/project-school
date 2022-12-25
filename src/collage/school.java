@@ -9,7 +9,6 @@ public class School {
 	private String location;
 	private int phoneNumber;
 	
-
 	private ArrayList<Department> departmentList = new ArrayList<>();
 
 	//----------------------- seters and geters-------------------------
