@@ -26,15 +26,13 @@ public class Department {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	
-	//------------------ class methods-------------------
-	public void addNewTeacher(Teacher teacher) {
-		teachertList.add(teacher);
-	
-	}
-
-	 ArrayList<Teacher> getTeacher() {
+	public ArrayList<Teacher> getTeachertList() {
 		return teachertList;
 	}
+	public void setTeachertList(ArrayList<Teacher> teachertList) {
+		this.teachertList = teachertList;
+	}
+	
+
 }
 

@@ -26,14 +26,11 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
+	public List<Course> getCourseList() {
+		return courseList;
+	}
+	public void setCourseList(List<Course> courseList) {
+		this.courseList = courseList;
+	}
 	
-	//------------------ class methods-------------------
-	void addNewCourse(Course course) {
-		courseList.add(course);
-		
-	}
-
-	Course getCourse(int index) {
-		return courseList.get(index);
-	}
 }

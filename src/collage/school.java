@@ -26,16 +26,14 @@ public class school {
 	public void setPhoneNumber(int phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-	//------------------ class methods-------------------
-	public void addNewDepartment(Department departmetnt) {
-		departmentList.add(departmetnt);
-	
-	}
-
-	ArrayList<Department>  getDepartment() {
+	public ArrayList<Department> getDepartmentList() {
 		return departmentList;
 	}
+	public void setDepartmentList(ArrayList<Department> departmentList) {
+		this.departmentList = departmentList;
+	}
+
+	
 
 	}
 

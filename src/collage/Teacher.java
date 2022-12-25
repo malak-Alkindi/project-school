@@ -26,14 +26,12 @@ public class Teacher {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public ArrayList<Student> getStudentList() {
+		return studentList;
+	}
+	public void setStudentList(ArrayList<Student> studentList) {
+		this.studentList = studentList;
+	}
 	
-	//------------------ class methods-------------------
-	void addNewStudent(Student student) {
-		studentList.add(student);
-		
-	}
-
-	Student getStudent(int index) {
-		return studentList.get(index);
-	}
+	
 }

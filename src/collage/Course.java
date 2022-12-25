@@ -23,14 +23,12 @@ public class Course {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public List<Mark> getMarkList() {
+		return markList;
+	}
+	public void setMarkList(List<Mark> markList) {
+		this.markList = markList;
+	}
 	
-	//------------------ class methods-------------------
-	void addNewmark(Mark mark) {
-		markList.add(mark);
-		
-	}
 
-	Mark getMark(int index) {
-		return markList.get(index);
-	}
 }
