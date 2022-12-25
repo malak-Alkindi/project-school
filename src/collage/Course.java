@@ -26,7 +26,7 @@ public class Course {
 	public List<Mark> getMarkList() {
 		return markList;
 	}
-	public void setMarkList(List<Mark> markList) {
+	public void setMarkList(ArrayList<Mark> markList) {
 		this.markList = markList;
 	}
 	
