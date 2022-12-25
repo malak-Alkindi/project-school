@@ -168,40 +168,46 @@ int schoolIndex = 0;
 			} else {
 				flag = false;
 				System.out.println("****************** school system report ******************");
-				System.out.println(schoolList.size());
+			
 				for(int sci=0;sci<schoolList.size();sci++) {
 				
 					school sobj=schoolList.get(sci);
-			System.out.println("school number ("+(sci+1)+")");
-			System.out.println("school name         :"+sobj.getLocation());
-			System.out.println("school phone number :"+sobj.getPhoneNumber());
+					System.out.println();
+			System.out.println(Error.red+"                 school number ("+(sci+1)+")"+Error.black);
+			System.out.println();
+			System.out.println("school name         :"+Error.blue+sobj.getLocation()+Error.black);
+			System.out.println("school phone number :"+Error.blue+sobj.getPhoneNumber());
 			System.out.println();
 					for(int di=0;di<sobj.getDepartmentList().size();di++) {
 						Department dobj=sobj.getDepartmentList().get(di);
-						System.out.println("department number ("+(di+1)+")");
-						System.out.println("department floor :"+dobj.getFloor());
-						System.out.println("department name  :"+dobj.getName());
+						System.out.println(Error.cyan+"department number ("+(di+1)+")"+Error.black);
+						System.out.println("department floor :"+Error.blue+dobj.getFloor()+Error.black);
+						System.out.println("department name  :"+Error.blue+dobj.getName());
 						System.out.println();
 						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
 							Teacher tobj=dobj.getTeachertList().get(ti);
-							System.out.println("teacher number ("+(ti+1)+")");
-							System.out.println("teacher name :"+tobj.getName());
-							System.out.println("teacher type :"+tobj.getType());
+							System.out.println(Error.cyan+"teacher number ("+(ti+1)+")"+Error.black);
+							System.out.println("teacher name :"+Error.blue+tobj.getName()+Error.black);
+							System.out.println("teacher type :"+Error.blue+tobj.getType());
+							System.out.println();
 							for(int si=0;si<tobj.getStudentList().size();si++) {
 								Student stobj=tobj.getStudentList().get(si);
-								System.out.println("Student number("+(si+1)+")");
-								System.out.println("Student name :"+stobj.getName());
-								System.out.println("Student age  :"+stobj.getAge());
+								System.out.println(Error.cyan+"Student number("+(si+1)+")"+Error.black);
+								System.out.println("Student name :"+Error.blue+stobj.getName()+Error.black);
+								System.out.println("Student age  :"+Error.blue+stobj.getAge());
+								System.out.println();
 								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
 									Course cobj=stobj.getCourseList().get(ci);
-									System.out.println("course number ("+(ci+1)+")");
-									System.out.println("course name :"+cobj.getName());
-									System.out.println("course id   :"+cobj.getId());
+									System.out.println(Error.cyan+"course number ("+(ci+1)+")"+Error.black);
+									System.out.println("course name :"+Error.blue+cobj.getName()+Error.black);
+									System.out.println("course id   :"+Error.blue+cobj.getId());
+									System.out.println();
 									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
 										Mark mobj=cobj.getMarkList().get(mi);
-										System.out.println("mark number ("+(mi+1)+")");
-										System.out.println("mark namr  :"+mobj.getSubjectName());
-										System.out.println("mark score :"+mobj.getMark());
+										System.out.println(Error.cyan+"mark number ("+(mi+1)+")"+Error.black);
+										System.out.println("mark namr  :"+Error.blue+mobj.getSubjectName()+Error.black);
+										System.out.println("mark score :"+Error.blue+mobj.getMark());
+										System.out.println();
 									}
 								}
 							}
