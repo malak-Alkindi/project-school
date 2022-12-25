@@ -29,7 +29,7 @@ public class Student {
 	public List<Course> getCourseList() {
 		return courseList;
 	}
-	public void setCourseList(List<Course> courseList) {
+	public void setCourseList(ArrayList<Course> courseList) {
 		this.courseList = courseList;
 	}
 	
