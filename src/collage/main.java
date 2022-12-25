@@ -168,7 +168,7 @@ int schoolIndex = 0;
 
 			} else {
 				flag = false;
-				System.out.println("****************** school system report ******************");
+				System.out.println("****************** school system report (for loop)******************");
 			
 				for(int sci=0;sci<schoolList.size();sci++) {
 				
@@ -206,7 +206,7 @@ int schoolIndex = 0;
 									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
 										Mark mobj=cobj.getMarkList().get(mi);
 										System.out.println(Error.cyan+"            mark number ("+(mi+1)+")"+Error.black);
-										System.out.println("            mark namr  :"+Error.blue+mobj.getSubjectName()+Error.black);
+										System.out.println("            mark name  :"+Error.blue+mobj.getSubjectName()+Error.black);
 										System.out.println("            mark score :"+Error.blue+mobj.getMark());
 										System.out.println();
 									}
@@ -214,6 +214,43 @@ int schoolIndex = 0;
 							}
 						}
 					}
+				}
+				
+				System.out.println(Error.black+"****************** school system report (for each)******************");
+				for(School sf:schoolList) {
+					System.out.println("school name         :"+Error.blue+sf.getLocation()+Error.black);
+					System.out.println("school phone number :"+Error.blue+sf.getPhoneNumber());
+					System.out.println();
+					for(Department df:sf.getDepartmentList()) {
+						System.out.println("department floor :"+Error.blue+df.getFloor()+Error.black);
+						System.out.println("department name  :"+Error.blue+df.getName());
+						System.out.println();
+						for(Teacher tf:df.getTeachertList()) {
+							System.out.println("   teacher name :"+Error.blue+tf.getName()+Error.black);
+							System.out.println("   teacher type :"+Error.blue+tf.getType());
+							System.out.println();
+							for(Student stf:tf.getStudentList()) {
+								System.out.println("      Student name :"+Error.blue+stf.getName()+Error.black);
+								System.out.println("      Student age  :"+Error.blue+stf.getAge());
+								System.out.println();
+								for(Course ctf:stf.getCourseList()) {
+									System.out.println("         course name :"+Error.blue+ctf.getName()+Error.black);
+									System.out.println("         course id   :"+Error.blue+ctf.getId());
+									System.out.println();
+									for(Mark mf:ctf.getMarkList()) {
+										System.out.println("            mark name  :"+Error.blue+mf.getSubjectName()+Error.black);
+										System.out.println("            mark score :"+Error.blue+mf.getMark());
+										System.out.println();
+										
+									}	
+								}	
+								
+							}
+							
+						}
+					}
+					
+					
 				}
 			}
 
