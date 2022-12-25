@@ -13,7 +13,7 @@ public class main {
 		boolean flag = true;
 int schoolIndex = 0;
 			boolean schoolFlag = true;
-			List<school> schoolList = new ArrayList<>();
+			List<School> schoolList = new ArrayList<>();
 		while (flag) {
 
 			System.out.println("do you want to create sschool system y/n");
@@ -24,8 +24,8 @@ int schoolIndex = 0;
 				System.out.println("          <add first school>");
 				System.out.println();
 				while (schoolFlag) {
-					schoolList.add(new school());
-					school schoolObj = schoolList.get(schoolIndex);
+					schoolList.add(new School());
+					School schoolObj = schoolList.get(schoolIndex);
 					System.out.println("what is the location of the school ?");
 					schoolObj.setLocation(sc.nextLine());
 					System.out.println("what is the phone number of the school ?");
@@ -171,7 +171,7 @@ int schoolIndex = 0;
 			
 				for(int sci=0;sci<schoolList.size();sci++) {
 				
-					school sobj=schoolList.get(sci);
+					School sobj=schoolList.get(sci);
 					System.out.println();
 			System.out.println(Error.red+"                 school number ("+(sci+1)+")"+Error.black);
 			System.out.println();

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class school {
+public class School {
 
 	private String location;
 	private int phoneNumber;
