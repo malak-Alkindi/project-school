@@ -8,7 +8,7 @@ public class Course {
 	private String name;
 	private int id;
 
-	private List<Mark> markList = new ArrayList<>();
+	private ArrayList<Mark> markList = new ArrayList<>();
 //----------------------- seters and geters-------------------------	
 	
 	public String getName() {

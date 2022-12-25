@@ -10,11 +10,24 @@ public class main {
 		List<school> schoolList = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 
-		int schoolIndex = 0;
-		boolean schoolCheck = true;
+boolean flag=true;
 
 
-			
+			while(flag) {
+				int schoolIndex = 0;
+				boolean schoolFlag = true;
+				System.out.println("do you want to create sschool system y/n");
+				if(sc.nextLine().equals("y")) {
+					
+				}
+				
+				else {
+					flag=false;
+					System.out.println("bye");
+				}
+				
+				
+			}
 		
 	}
 }

@@ -11,7 +11,7 @@ public class Student {
 	private int age;
 
 	
-	private List<Course> courseList = new ArrayList<>();
+	private ArrayList<Course> courseList = new ArrayList<>();
 //----------------------- seters and geters-------------------------	
 	
 	public String getName() {
