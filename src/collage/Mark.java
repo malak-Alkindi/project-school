@@ -1,5 +1,8 @@
 package collage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Mark {
 
 	private String subjectName;
@@ -22,5 +25,11 @@ public class Mark {
 	}
 	
 	//------------------ class methods-------------------
-	
+	 double getGpa(List<Mark> glist) {
+		double total=0;
+		for(Mark mark:glist) {
+			total=total+(double)(mark.getMark());
+		}
+		return total/glist.size();
+	}
 }
