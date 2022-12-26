@@ -2,7 +2,7 @@ package collage;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Stack;
 
 public class School {
 
@@ -32,8 +32,11 @@ School(){System.out.println("do you want to create school system y/n");}
 		this.departmentList = departmentList;
 	}
 
+	static void history(Stack stk){
+		for(int i=0;i<=stk.size();i++) {
+		System.out.println(format.red +stk.pop());
+	}}
 	
-
 	}
 
 

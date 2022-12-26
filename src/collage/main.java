@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
-
+import java.time.LocalDateTime;
 public class main {
 
 	public static void main(String[] args) {
 		Stack narkHistoryStack = new Stack();  
 		Scanner sc = new Scanner(System.in);
-		 try {
 		
-		    } catch (Exception e) {
-		      System.out.println("Something went wrong.");
-		    }
+		
+		   
+		 
+		  
 		format f=new format();
 		boolean flag = true;
 int schoolIndex = 0;
@@ -118,7 +118,8 @@ int schoolIndex = 0;
 										Mark markObj = courseObj.getMarkList().get(markIndex);
 										System.out.println("what is the subject name ?");
 										String markInput =sc.nextLine();
-										narkHistoryStack.push(markInput);
+									
+										narkHistoryStack.push(LocalDateTime.now() +"        :" +markInput);
 										markObj.setSubjectName(markInput);
 							
 										System.out.println("what is the subject mark ?");
@@ -216,8 +217,8 @@ int schoolIndex = 0;
 									System.out.println();
 									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
 										Mark mobj=cobj.getMarkList().get(mi);
-										System.out.println(format.cyan+"            mark number ("+(mi+1)+")"+format.black);
-										System.out.println("            mark name  :"+format.blue+mobj.getSubjectName()+format.black);
+										System.out.printf(format.cyan+"            mark number ( %d ) \n",(mi+1) );
+										System.out.println(format.black+"            mark name  :"+format.blue+mobj.getSubjectName()+format.black);
 										System.out.println("            mark score :"+format.blue+mobj.getMark());
 										System.out.println();
 									}
@@ -272,12 +273,10 @@ int schoolIndex = 0;
 		
 
 		System.out.println(format.black+"************************************");
-		System.out.println("do you want to show the mark subjects history y/n?");
+		System.out.print("do you want to show the mark subjects history y/n?   ");
 		if(sc.nextLine().equals("y")) {
-			for(int i=0;i<=narkHistoryStack.size();i++) {
-				System.out.println(format.red +narkHistoryStack.pop());
-			}
-			
+		
+			School.history(narkHistoryStack);
 		}
 		else {
 			System.out.println("ok fine no history");
