@@ -1,8 +1,8 @@
 package collage;
 
-public class Error {
+public class format {
 	
-	Error(){
+	format(){
 		System.out.println("here we create school system");
 	}
 	public static final String rest = "\u001B[0m";
