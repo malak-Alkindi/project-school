@@ -1,20 +1,53 @@
 package collage;
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.File;  // Import the File class
+import java.io.IOException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 import java.time.LocalDateTime;
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.io.FileReader;
 public class main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Stack narkHistoryStack = new Stack();  
 		Scanner sc = new Scanner(System.in);
 		
-		
-		   
+//		 try {
+//		      File ff = new File("C:\\Users\\Lenovo\\Desktop\\libary_report.txt");
+//		      
+//		      if (ff.createNewFile()) {
+//		        System.out.println("File created: " + ff.getName());
+//		      } else {
+//		        System.out.println("File already exists.");
+//		        System.out.println( ff.getPath());
+//		       
+//		      }
+//		    } catch (IOException e) {
+//		      System.out.println("An error occurred.");
+//		      e.printStackTrace();
+//		    }
 		 
-		  
+		
+	
+		
+				// FileWriter w = new FileWriter("C:\\Users\\Lenovo\\Desktop\\libary_report.txt");
+			    
+		BufferedReader r = new BufferedReader( new FileReader( "C:\\\\Users\\\\Lenovo\\\\Desktop\\\\libary_report.txt" ) );
+		String  line = null;
+		
+		while ((line = r.readLine()) != null) {
+			System.out.print(line);
+			System.out.println();
+		}
+	
+				    
+			   
 		format f=new format();
 		boolean flag = true;
 int schoolIndex = 0;
@@ -180,53 +213,73 @@ int schoolIndex = 0;
 
 			} else {
 				flag = false;
-				System.out.println("****************** school system report (for loop)******************");
-			
-				for(int sci=0;sci<schoolList.size();sci++) {
-				
-					School sobj=schoolList.get(sci);
-					System.out.println();
-			System.out.println(format.red+"                 school number ("+(sci+1)+")"+format.black);
-			System.out.println();
-			System.out.println("school name         :"+format.blue+sobj.getLocation()+format.black);
-			System.out.println("school phone number :"+format.blue+sobj.getPhoneNumber());
-			System.out.println();
-					for(int di=0;di<sobj.getDepartmentList().size();di++) {
-						Department dobj=sobj.getDepartmentList().get(di);
-						System.out.println(format.cyan+"department number ("+(di+1)+")"+format.black);
-						System.out.println("department floor :"+format.blue+dobj.getFloor()+format.black);
-						System.out.println("department name  :"+format.blue+dobj.getName());
-						System.out.println();
-						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
-							Teacher tobj=dobj.getTeachertList().get(ti);
-							System.out.println(format.cyan+"   teacher number ("+(ti+1)+")"+format.black);
-							System.out.println("   teacher name :"+format.blue+tobj.getName()+format.black);
-							System.out.println("   teacher type :"+format.blue+tobj.getType());
-							System.out.println();
-							for(int si=0;si<tobj.getStudentList().size();si++) {
-								Student stobj=tobj.getStudentList().get(si);
-								System.out.println(format.cyan+"      Student number("+(si+1)+")"+format.black);
-								System.out.println("      Student name :"+format.blue+stobj.getName()+format.black);
-								System.out.println("      Student age  :"+format.blue+stobj.getAge());
-								System.out.println();
-								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
-									Course cobj=stobj.getCourseList().get(ci);
-									System.out.println(format.cyan+"         course number ("+(ci+1)+")"+format.black);
-									System.out.println("         course name :"+format.blue+cobj.getName()+format.black);
-									System.out.println("         course id   :"+format.blue+cobj.getId());
-									System.out.println();
-									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
-										Mark mobj=cobj.getMarkList().get(mi);
-										System.out.printf(format.cyan+"            mark number ( %d ) \n",(mi+1) );
-										System.out.println(format.black+"            mark name  :"+format.blue+mobj.getSubjectName()+format.black);
-										System.out.println("            mark score :"+format.blue+mobj.getMark());
-										System.out.println();
-									}
-								}
-							}
-						}
-					}
-				}
+//				 System.out.println("****************** school system report (for loop)******************");
+//				 w.write("****************** school system report (for loop)****************** \n \n");
+//			
+//				for(int sci=0;sci<schoolList.size();sci++) {
+//				
+//					School sobj=schoolList.get(sci);
+//					System.out.println();
+//			System.out.println(format.red+"                 school number ("+(sci+1)+")"+format.black);
+//			 w.write("                 school number ("+(sci+1)+")\n ");
+//			System.out.println();
+//			System.out.println("school name         :"+format.blue+sobj.getLocation()+format.black);
+//			 w.write("school name         :"+sobj.getLocation()+" \n ");
+//			System.out.println("school phone number :"+format.blue+sobj.getPhoneNumber());
+//			 w.write("school phone number :"+sobj.getLocation()+" \n \n ");
+//			System.out.println();
+//					for(int di=0;di<sobj.getDepartmentList().size();di++) {
+//						Department dobj=sobj.getDepartmentList().get(di);
+//						System.out.println(format.cyan+"department number ("+(di+1)+")"+format.black);
+//						 w.write("department number ("+(di+1)+") \n ");
+//						System.out.println("department floor :"+format.blue+dobj.getFloor()+format.black);
+//						 w.write("department floor :"+dobj.getFloor()+ "\n ");
+//						System.out.println("department name  :"+format.blue+dobj.getName());
+//						 w.write("department name :"+dobj.getName()+"\n \n");
+//						System.out.println();
+//						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
+//							Teacher tobj=dobj.getTeachertList().get(ti);
+//							System.out.println(format.cyan+"   teacher number ("+(ti+1)+")"+format.black);
+//							 w.write("   teacher number ("+(di+1)+") \n ");
+//							System.out.println("   teacher name :"+format.blue+tobj.getName()+format.black);
+//							 w.write("   teacher name :"+tobj.getName()+" \n ");
+//							System.out.println("   teacher type :"+format.blue+tobj.getType());
+//							 w.write("   teacher type :"+tobj.getType()+"\n \n ");
+//							System.out.println();
+//							for(int si=0;si<tobj.getStudentList().size();si++) {
+//								Student stobj=tobj.getStudentList().get(si);
+//								System.out.println(format.cyan+"      Student number("+(si+1)+")"+format.black);
+//								 w.write("      Student number("+(si+1)+") \n ");
+//								System.out.println("      Student name :"+format.blue+stobj.getName()+format.black);
+//								 w.write("      Student name :"+stobj.getName()+" \n ");
+//								System.out.println("      Student age  :"+format.blue+stobj.getAge());
+//								 w.write("      Student age  :"+stobj.getAge()+"\n \n ");
+//								System.out.println();
+//								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
+//									Course cobj=stobj.getCourseList().get(ci);
+//									System.out.println(format.cyan+"         course number ("+(ci+1)+")"+format.black);
+//									 w.write("         course number ("+ci+1+" \n ");
+//									System.out.println("         course name :"+format.blue+cobj.getName()+format.black);
+//									 w.write("         course name :"+cobj.getName()+" \n ");
+//									System.out.println("         course id   :"+format.blue+cobj.getId());
+//									 w.write("         course id   :"+cobj.getId()+" \n \n");
+//									System.out.println();
+//									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
+//										Mark mobj=cobj.getMarkList().get(mi);
+//										System.out.printf(format.cyan+"            mark number ( %d ) \n",(mi+1) );
+//										 w.write("            mark number("+(mi+1)+") \n ");
+//										System.out.println(format.black+"            mark name  :"+mobj.getSubjectName());
+//										 w.write("            mark name  :"+mobj.getSubjectName()+" \n ");
+//										System.out.println("            mark score :"+format.blue+mobj.getMark());
+//										 w.write("            mark score :"+mobj.getMark()+" \n \n ");
+//										System.out.println();
+//									}
+//								}
+//							}
+//					}
+//				}
+//				      w.close();
+//				}
 				
 				System.out.println(format.black+"****************** school system report (for each)******************");
 				for(School sf:schoolList) {

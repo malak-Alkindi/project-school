@@ -4,8 +4,7 @@ public class format {
 	
 	format(){
 		System.out.println("here we create school system");
-		 Error e = new Error("Error have been defined manually");
-	System.out.println(e.getMessage());
+
 	}
 	public static final String rest = "\u001B[0m";
 	public static final String black = "\u001B[30m";
