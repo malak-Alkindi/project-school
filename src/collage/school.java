@@ -1,10 +1,10 @@
 package collage;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class School {
+public class School implements Serializable {
 
 	private String location;
 	private int phoneNumber;

@@ -6,19 +6,28 @@ import java.io.BufferedReader;
 import java.io.File;  // Import the File class
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.FileNotFoundException;  // Import this class to handle errors
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
+
 import java.time.LocalDateTime;
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.io.FileReader;
+
 public class main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Stack narkHistoryStack = new Stack();  
 		Scanner sc = new Scanner(System.in);
-		
+	
 		
 		System.out.println("enter the name of file you want to create");
 		String fileName=sc.nextLine();
@@ -36,6 +45,7 @@ public class main {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
+		
 		 FileWriter  w = new FileWriter("C:\\Users\\Lenovo\\Desktop\\"+fileName+".txt");
 		 System.out.println("enter the name of file you want to read ?");
 			String fileNameRead=sc.nextLine();
@@ -311,6 +321,30 @@ int schoolIndex = 0;
 										System.out.println("            mark score :"+format.blue+mf.getMark()+format.black);
 										System.out.println("         the gpa     :"+format.blue+mf.getGpa(ctf.getMarkList()));
 										System.out.println();
+										
+										FileOutputStream ff = new FileOutputStream(new File("myObjects.txt"));
+										ObjectOutputStream o = new ObjectOutputStream(ff);
+										Mark mm=new Mark();
+										// Write objects to file
+										o.writeObject(mf);
+										o.writeObject(mf);
+
+										o.close();
+										ff.close();
+
+										FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
+										ObjectInputStream oi = new ObjectInputStream(fi);
+
+										// Read objects
+										Mark pr1 = (Mark) oi.readObject();
+										Mark pr2 = (Mark) oi.readObject();
+
+										System.out.println(pr1.getMark());
+							
+
+										oi.close();
+										fi.close();
+
 										
 									}	
 								}	

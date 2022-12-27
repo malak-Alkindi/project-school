@@ -1,11 +1,11 @@
 package collage;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class Teacher {
+public class Teacher implements Serializable {
 
 	private String type;
 	private String name;

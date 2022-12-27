@@ -1,11 +1,11 @@
 package collage;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class Department {
+public class Department implements Serializable {
 
 	private String name;
 	private int floor;

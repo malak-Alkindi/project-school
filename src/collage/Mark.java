@@ -1,9 +1,9 @@
 package collage;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mark {
+public class Mark implements Serializable {
 
 	private String subjectName;
 	private int mark;
