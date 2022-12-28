@@ -27,8 +27,11 @@ public class main {
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		Stack narkHistoryStack = new Stack();  
 		Scanner sc = new Scanner(System.in);
-	
-		
+	School sss = new School();
+    Class<?> aa = sss.getClass(); //Type information associated with type `A`
+System.out.println(aa.getName());
+
+
 		System.out.println("enter the name of file you want to create");
 		String fileName=sc.nextLine();
 		 try {
@@ -53,13 +56,40 @@ public class main {
 			    
 		BufferedReader r = new BufferedReader( new FileReader( "C:\\Users\\Lenovo\\Desktop\\"+fileNameRead+".txt" ) );
 		String  line = null;
+
 		
+	    System.out.println("enter file to search");
+	      String input=sc.nextLine().toLowerCase();  
+		  String[] words=null;
+		  int count=0; 
 		while ((line = r.readLine()) != null) {
-			System.out.print(line);
+			
+			
+			 words=line.split(" ");  //Split the word using space
+	          for (String word : words) 
+	          {
+	                 if (word.equals(input))  
+	                 {
+	                	 System.out.println(line);
+	                	 System.out.println();
+	                   count++;    
+	                 }
+	          }
+	      }
+		 if(count!=0)  
+	      {
+	         System.out.println("The given word <"+input+"> showed"+count+ " Times in the file");
+	      }
+	      else
+	      {
+	         System.out.println("The given word is not present in the file");
+	      }
+			
+
+		//	System.out.print(line);
 			System.out.println();
-		}
-	
-				    
+		
+
 			   
 		format f=new format();
 		boolean flag = true;
@@ -324,9 +354,8 @@ int schoolIndex = 0;
 										
 										FileOutputStream ff = new FileOutputStream(new File("myObjects.txt"));
 										ObjectOutputStream o = new ObjectOutputStream(ff);
-										Mark mm=new Mark();
+							
 										// Write objects to file
-										o.writeObject(mf);
 										o.writeObject(mf);
 
 										o.close();
@@ -334,12 +363,14 @@ int schoolIndex = 0;
 
 										FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
 										ObjectInputStream oi = new ObjectInputStream(fi);
-
+									    
 										// Read objects
 										Mark pr1 = (Mark) oi.readObject();
-										Mark pr2 = (Mark) oi.readObject();
-
-										System.out.println(pr1.getMark());
+									
+										
+									
+System.out.println("the out put from the saved opjects : ");
+										System.out.println(pr1.getMark() +"\n");
 							
 
 										oi.close();
