@@ -6,7 +6,7 @@ import java.util.List;
 public class Mark implements Serializable {
 
 	private String subjectName;
-	private int mark;
+	private Integer mark;
 
 	
 //----------------------- seters and geters-------------------------	

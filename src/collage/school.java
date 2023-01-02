@@ -10,7 +10,7 @@ public class School implements Serializable {
 	private Integer phoneNumber;
 	
 	private ArrayList<Department> departmentList;
-School(){System.out.println("do you want to create school system y/n");}
+
 	//----------------------- seters and geters-------------------------
 
 	public String getLocation() {

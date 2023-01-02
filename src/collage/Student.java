@@ -5,10 +5,10 @@ import java.util.List;
 
 
 
-public class Student implements Serializable {
+public class Student implements Serializable ,Assigning{
 
 	private String name;
-	private int age;
+	private Integer age;
 
 	
 	private ArrayList<Course> courseList;

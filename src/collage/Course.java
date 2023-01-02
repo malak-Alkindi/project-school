@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Course implements Serializable {
 	private String name;
-	private int id;
+	private Integer id;
 
 	private ArrayList<Mark> markList ;
 //----------------------- seters and geters-------------------------	

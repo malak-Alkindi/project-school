@@ -21,7 +21,7 @@ import java.time.LocalDateTime;
 
 public class main {
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) throws Exception {
 		Stack narkHistoryStack = new Stack();
 		Scanner sc = new Scanner(System.in);
 		School sss = new School();
@@ -55,7 +55,7 @@ public class main {
 		System.out.println("enter world to search");
 		String input = sc.nextLine().toLowerCase();
 		String[] words = null;
-		int count = 0;
+		Integer count = 0;
 		String n = "";
 		while ((line = fileReader.readLine()) != null) {
 
@@ -100,14 +100,14 @@ public class main {
 		boolean flag = true;
 		boolean schoolFlag = true;
 		List<School> schoolList = new ArrayList<>();
-
+System.out.println("do you want to create school system y/n");
 		while (flag) {
 	
 
 			if (sc.nextLine().equals("y")) {
 
-				System.out.println("\t\t\t\t<add first school>");
-				System.out.println();
+				System.out.println("\t\t\t\t<add first school>\n");
+			
 				while (schoolFlag) {
 					School school = new School();
 					System.out.println("what is the location of the school ?");
@@ -123,8 +123,8 @@ public class main {
 					
 					ArrayList<Department> departmentList = new ArrayList<>();
 
-					System.out.println("\t\t\t\t<add first department> to school number :");
-					System.out.println();
+					System.out.println("\t\t\t\t<add first department> to school number :\n");
+				
 					while (departmetFlag) {
 						Department department =new Department();
 						System.out.println("how many floors in this department ?");
@@ -155,7 +155,7 @@ public class main {
 							System.out.println();
 							while (studentFlag) {
 								Student student=new Student();
-						
+								student.introduceToDepartment();
 								System.out.println("what is the studnet age ?");
 								student.setAge(sc.nextInt());
 								sc.nextLine();
@@ -182,14 +182,14 @@ public class main {
 									boolean markFlag = true;
 									ArrayList<Mark> markList = new ArrayList<>();
 
-									System.out.println("\t\t\t\t<add first mark>");
-									System.out.println();
+									System.out.println("\t\t\t\t<add first mark>\n");
+								
 									while (markFlag) {
 										Mark mark =new Mark();
 										System.out.println("what is the subject name ?");
 										String markInput = sc.nextLine();
 
-										narkHistoryStack.push(LocalDateTime.now() + "\t\t\t\t:" + markInput);
+										narkHistoryStack.push(LocalDateTime.now() + "\t\t\t\t :" + markInput);
 										mark.setSubjectName(markInput);
 
 										System.out.println("what is the subject mark ?");
@@ -266,16 +266,15 @@ public class main {
 				for (int sci = 0; sci < schoolList.size(); sci++) {
 
 					School sobj = schoolList.get(sci);
-					System.out.println();
-					System.out
-							.println(format.red + "                 school number (" + (sci + 1) + ")" + format.black);
-					w.write("                 school number (" + (sci + 1) + ")\n ");
+				
+					System.out.println(format.red + "\n\t\t\t\tschool number (" + (sci + 1) + ")" + format.black);
+					w.write("\t\t\t\tschool number (" + (sci + 1) + ")\n ");
 					System.out.println();
 					System.out.println("school name         :" + format.blue + sobj.getLocation() + format.black);
 					w.write("school name         :" + sobj.getLocation() + " \n ");
 					System.out.println("school phone number :" + format.blue + sobj.getPhoneNumber());
 					w.write("school phone number :" + sobj.getLocation() + " \n \n ");
-					System.out.println();
+			
 					for (int di = 0; di < sobj.getDepartmentList().size(); di++) {
 						Department dobj = sobj.getDepartmentList().get(di);
 						System.out.println(format.cyan + "department number (" + (di + 1) + ")" + format.black);
@@ -284,48 +283,48 @@ public class main {
 						w.write("department floor :" + dobj.getFloor() + "\n ");
 						System.out.println("department name  :" + format.blue + dobj.getName());
 						w.write("department name :" + dobj.getName() + "\n \n");
-						System.out.println();
+					
 						for (int ti = 0; ti < dobj.getTeachertList().size(); ti++) {
 							Teacher tobj = dobj.getTeachertList().get(ti);
 							System.out.println(format.cyan + "   teacher number (" + (ti + 1) + ")" + format.black);
-							w.write("   teacher number (" + (di + 1) + ") \n ");
+							w.write("\tteacher number (" + (di + 1) + ") \n ");
 							System.out.println("   teacher name :" + format.blue + tobj.getName() + format.black);
-							w.write("   teacher name :" + tobj.getName() + " \n ");
+							w.write("\tteacher name :" + tobj.getName() + " \n ");
 							System.out.println("   teacher type :" + format.blue + tobj.getType());
-							w.write("   teacher type :" + tobj.getType() + "\n \n ");
+							w.write("\tteacher type :" + tobj.getType() + "\n \n ");
 							System.out.println();
 							for (int si = 0; si < tobj.getStudentList().size(); si++) {
 								Student stobj = tobj.getStudentList().get(si);
 								System.out
-										.println(format.cyan + "      Student number(" + (si + 1) + ")" + format.black);
-								w.write("      Student number(" + (si + 1) + ") \n ");
+										.println(format.cyan + "\t\tStudent number(" + (si + 1) + ")" + format.black);
+								w.write("\t\tStudent number(" + (si + 1) + ") \n ");
 								System.out
 										.println("      Student name :" + format.blue + stobj.getName() + format.black);
-								w.write("      Student name :" + stobj.getName() + " \n ");
+								w.write("\t\tStudent name :" + stobj.getName() + " \n ");
 								System.out.println("      Student age  :" + format.blue + stobj.getAge());
-								w.write("      Student age  :" + stobj.getAge() + "\n \n ");
-								System.out.println();
+								w.write("\t\tStudent age  :" + stobj.getAge() + "\n \n ");
+								
 								for (int ci = 0; ci < stobj.getCourseList().size(); ci++) {
 									Course cobj = stobj.getCourseList().get(ci);
 									System.out.println(
-											format.cyan + "         course number (" + (ci + 1) + ")" + format.black);
-									w.write("         course number (" + ci + 1 + " \n ");
+											format.cyan + "\t\t\tcourse number (" + (ci + 1) + ")" + format.black);
+									w.write("\t\t\tcourse number (" + ci + 1 + " \n ");
 									System.out.println(
-											"         course name :" + format.blue + cobj.getName() + format.black);
-									w.write("         course name :" + cobj.getName() + " \n ");
-									System.out.println("         course id   :" + format.blue + cobj.getId());
-									w.write("         course id   :" + cobj.getId() + " \n \n");
-									System.out.println();
+											"\t\t\tcourse name :" + format.blue + cobj.getName() + format.black);
+									w.write("\t\t\tcourse name :" + cobj.getName() + " \n ");
+									System.out.println("\t\t\tcourse id   :" + format.blue + cobj.getId());
+									w.write("\t\t\tcourse id   :" + cobj.getId() + " \n \n");
+								
 									for (int mi = 0; mi < cobj.getMarkList().size(); mi++) {
 										Mark mobj = cobj.getMarkList().get(mi);
-										System.out.printf(format.cyan + "            mark number ( %d ) \n", (mi + 1));
-										w.write("            mark number(" + (mi + 1) + ") \n ");
+										System.out.printf(format.cyan + "\t\t\t\tmark number ( %d ) \n", (mi + 1));
+										w.write("\t\t\t\tmark number(" + (mi + 1) + ") \n ");
 										System.out.println(
-												format.black + "            mark name  :" + mobj.getSubjectName());
-										w.write("            mark name  :" + mobj.getSubjectName() + " \n ");
-										System.out.println("            mark score :" + format.blue + mobj.getMark());
-										w.write("            mark score :" + mobj.getMark() + " \n \n ");
-										System.out.println();
+												format.black + "\t\t\t\tmark name  :" + mobj.getSubjectName());
+										w.write("\t\t\t\tmark name  :" + mobj.getSubjectName() + " \n ");
+										System.out.println("\t\t\t\tmark score :" + format.blue + mobj.getMark());
+										w.write("\t\t\t\tmark score :" + mobj.getMark() + " \n \n ");
+									
 									}
 								}
 							}
@@ -345,27 +344,27 @@ public class main {
 						System.out.println("department name  :" + format.blue + df.getName());
 						System.out.println();
 						for (Teacher tf : df.getTeachertList()) {
-							System.out.println("   teacher name :" + format.blue + tf.getName() + format.black);
-							System.out.println("   teacher type :" + format.blue + tf.getType());
+							System.out.println("\tteacher name :" + format.blue + tf.getName() + format.black);
+							System.out.println("\tteacher type :" + format.blue + tf.getType());
 							System.out.println();
 							for (Student stf : tf.getStudentList()) {
-								System.out.println("      Student name :" + format.blue + stf.getName() + format.black);
-								System.out.println("      Student age  :" + format.blue + stf.getAge());
+								System.out.println("\t\tStudent name :" + format.blue + stf.getName() + format.black);
+								System.out.println("\t\tStudent age  :" + format.blue + stf.getAge());
 								System.out.println();
 								for (Course ctf : stf.getCourseList()) {
 									System.out.println(
-											"         course name :" + format.blue + ctf.getName() + format.black);
+											"\t\t\tcourse name :" + format.blue + ctf.getName() + format.black);
 									System.out.println(
-											"         course id   :" + format.blue + ctf.getId() + format.black);
+											"\t\t\tcourse id   :" + format.blue + ctf.getId() + format.black);
 
 									System.out.println();
 									for (Mark mf : ctf.getMarkList()) {
-										System.out.println("            mark name  :" + format.blue
+										System.out.println("\t\t\t\tmark name  :" + format.blue
 												+ mf.getSubjectName() + format.black);
 										System.out.println(
-												"            mark score :" + format.blue + mf.getMark() + format.black);
+												"\t\t\t\tmark score :" + format.blue + mf.getMark() + format.black);
 										System.out.println(
-												"         the gpa     :" + format.blue + mf.getGpa(ctf.getMarkList()));
+												"\t\t\t\tthe gpa     :" + format.blue + mf.getGpa(ctf.getMarkList()));
 										System.out.println();
 
 										FileOutputStream ff = new FileOutputStream(new File("myObjects.txt"));
@@ -410,6 +409,7 @@ public class main {
 		} else {
 			System.out.println("ok fine no history");
 		}
+
 	}
 
 }

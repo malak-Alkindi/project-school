@@ -8,7 +8,7 @@ import java.util.List;
 public class Department implements Serializable {
 
 	private String name;
-	private int floor;
+	private Integer floor;
 
 	
 	private ArrayList<Teacher> teachertList;

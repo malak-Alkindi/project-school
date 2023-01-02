@@ -5,7 +5,7 @@ import java.util.List;
 
 
 
-public class Teacher implements Serializable {
+public class Teacher implements Serializable ,Assigning{
 
 	private String type;
 	private String name;
