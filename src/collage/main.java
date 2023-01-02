@@ -34,7 +34,7 @@ public class main {
 			File ff = new File("C:\\Users\\Lenovo\\Desktop\\" + fileName + ".txt");
 
 			if (ff.createNewFile()) {
-				System.out.println("File created: " + ff.getName());
+				System.out.println("File created:\t" + ff.getName());
 			} else {
 				System.out.println("File already exists.");
 				System.out.println(ff.getPath());
@@ -49,7 +49,7 @@ public class main {
 		System.out.println("enter the name of file you want to read ?");
 		String fileNameRead = sc.nextLine();
 
-		BufferedReader r = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\" + fileNameRead + ".txt"));
+		BufferedReader fileReader = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\" + fileNameRead + ".txt"));
 		String line = null;
 
 		System.out.println("enter world to search");
@@ -57,7 +57,7 @@ public class main {
 		String[] words = null;
 		int count = 0;
 		String n = "";
-		while ((line = r.readLine()) != null) {
+		while ((line = fileReader.readLine()) != null) {
 
 			words = line.split(" ");
 
@@ -72,7 +72,7 @@ public class main {
 				}
 			}
 		}
-		while ((line = r.readLine()) != null) {
+		while ((line = fileReader.readLine()) != null) {
 
 			words = line.split(" "); // Split the word using space
 			for (String word : words) {
@@ -96,7 +96,7 @@ public class main {
 		// System.out.print(line);
 		System.out.println();
 
-		format f = new format();
+
 		boolean flag = true;
 		boolean schoolFlag = true;
 		List<School> schoolList = new ArrayList<>();
@@ -106,7 +106,7 @@ public class main {
 
 			if (sc.nextLine().equals("y")) {
 
-				System.out.println("          <add first school>");
+				System.out.println("\t\t\t\t<add first school>");
 				System.out.println();
 				while (schoolFlag) {
 					School school = new School();
@@ -123,7 +123,7 @@ public class main {
 					
 					ArrayList<Department> departmentList = new ArrayList<>();
 
-					System.out.println("          <add first department> to school number :");
+					System.out.println("\t\t\t\t<add first department> to school number :");
 					System.out.println();
 					while (departmetFlag) {
 						Department department =new Department();
@@ -137,7 +137,7 @@ public class main {
 						boolean teacherFlag = true;
 						ArrayList<Teacher> teacherList = new ArrayList<>();
 
-						System.out.println("          <add first treacher>to school number : " );
+						System.out.println("\t\t\t\t<add first treacher>to school number : " );
 						System.out.println();
 						while (teacherFlag) {
 							Teacher teacher	=new Teacher();
@@ -151,7 +151,7 @@ public class main {
 							boolean studentFlag = true;
 							ArrayList<Student> studentList = new ArrayList<>();
 
-							System.out.println("          <add first student>");
+							System.out.println("\t\t\t\t<add first student>");
 							System.out.println();
 							while (studentFlag) {
 								Student student=new Student();
@@ -166,7 +166,7 @@ public class main {
 								boolean courseFlag = true;
 								ArrayList<Course> courseList = new ArrayList<>();
 
-								System.out.println("          <add first course>");
+								System.out.println("\t\t\t\t<add first course>");
 								System.out.println();
 								while (courseFlag) {
 									Course course=new Course();
@@ -182,14 +182,14 @@ public class main {
 									boolean markFlag = true;
 									ArrayList<Mark> markList = new ArrayList<>();
 
-									System.out.println("          <add first mark>");
+									System.out.println("\t\t\t\t<add first mark>");
 									System.out.println();
 									while (markFlag) {
 										Mark mark =new Mark();
 										System.out.println("what is the subject name ?");
 										String markInput = sc.nextLine();
 
-										narkHistoryStack.push(LocalDateTime.now() + "        :" + markInput);
+										narkHistoryStack.push(LocalDateTime.now() + "\t\t\t\t:" + markInput);
 										mark.setSubjectName(markInput);
 
 										System.out.println("what is the subject mark ?");
