@@ -1,16 +1,13 @@
 package collage;
+
 import java.io.IOException;
 
-import java.nio.file.Files;
 import java.io.BufferedReader;
-import java.io.File;  // Import the File class
-import java.io.IOException;
+import java.io.File; // Import the File class
 import java.io.FileWriter;
-import java.io.FileNotFoundException;  // Import this class to handle errors
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -25,229 +22,236 @@ import java.time.LocalDateTime;
 public class main {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		Stack narkHistoryStack = new Stack();  
+		Stack narkHistoryStack = new Stack();
 		Scanner sc = new Scanner(System.in);
-	School sss = new School();
-    Class<?> aa = sss.getClass(); //Type information associated with type `A`
-System.out.println(aa.getName());
-
+		School sss = new School();
+		Class<?> aa = sss.getClass(); // Type information associated with type `A`
+		System.out.println(aa.getName());
 
 		System.out.println("enter the name of file you want to create");
-		String fileName=sc.nextLine();
-		 try {
-		      File ff = new File("C:\\Users\\Lenovo\\Desktop\\"+fileName+".txt");
-		     
-		      if (ff.createNewFile()) {
-		        System.out.println("File created: " + ff.getName());
-		      } else {
-		        System.out.println("File already exists.");
-		        System.out.println( ff.getPath());
-		       
-		      }
-		    } catch (IOException e) {
-		      System.out.println("An error occurred.");
-		      e.printStackTrace();
-		    }
-		
-		 FileWriter  w = new FileWriter("C:\\Users\\Lenovo\\Desktop\\"+fileName+".txt");
-		 System.out.println("enter the name of file you want to read ?");
-			String fileNameRead=sc.nextLine();
-			
-			    
-		BufferedReader r = new BufferedReader( new FileReader( "C:\\Users\\Lenovo\\Desktop\\"+fileNameRead+".txt" ) );
-		String  line = null;
+		String fileName = sc.nextLine();
+		try {
+			File ff = new File("C:\\Users\\Lenovo\\Desktop\\" + fileName + ".txt");
 
-		
-	    System.out.println("enter file to search");
-	      String input=sc.nextLine().toLowerCase();  
-		  String[] words=null;
-		  int count=0; 
+			if (ff.createNewFile()) {
+				System.out.println("File created: " + ff.getName());
+			} else {
+				System.out.println("File already exists.");
+				System.out.println(ff.getPath());
+
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+
+		FileWriter w = new FileWriter("C:\\Users\\Lenovo\\Desktop\\" + fileName + ".txt");
+		System.out.println("enter the name of file you want to read ?");
+		String fileNameRead = sc.nextLine();
+
+		BufferedReader r = new BufferedReader(new FileReader("C:\\Users\\Lenovo\\Desktop\\" + fileNameRead + ".txt"));
+		String line = null;
+
+		System.out.println("enter world to search");
+		String input = sc.nextLine().toLowerCase();
+		String[] words = null;
+		int count = 0;
+		String n = "";
 		while ((line = r.readLine()) != null) {
-			
-			
-			 words=line.split(" ");  //Split the word using space
-	          for (String word : words) 
-	          {
-	                 if (word.equals(input))  
-	                 {
-	                	 System.out.println(line);
-	                	 System.out.println();
-	                   count++;    
-	                 }
-	          }
-	      }
-		 if(count!=0)  
-	      {
-	         System.out.println("The given word <"+input+"> showed"+count+ " Times in the file");
-	      }
-	      else
-	      {
-	         System.out.println("The given word is not present in the file");
-	      }
-			
 
-		//	System.out.print(line);
-			System.out.println();
-		
+			words = line.split(" ");
 
-			   
-		format f=new format();
+			for (String word : words)
+
+			{
+				n = word.toString().toLowerCase();
+				if (word.equals(input)) {
+					// System.out.println(line);
+					// System.out.println();
+					count++;
+				}
+			}
+		}
+		while ((line = r.readLine()) != null) {
+
+			words = line.split(" "); // Split the word using space
+			for (String word : words) {
+				if (word.equals(input)) {
+					System.out.println(line);
+					System.out.println();
+					count++;
+				}
+			}
+		}
+		System.out.println(n);
+//		 if(count!=0)  
+//	      {
+//	         System.out.println("The given word <"+input+"> showed"+count+ " Times in the file");
+//	      }
+//	      else
+//	      {
+//	         System.out.println("The given word is not present in the file");
+//	      }
+
+		// System.out.print(line);
+		System.out.println();
+
+		format f = new format();
 		boolean flag = true;
-int schoolIndex = 0;
-			boolean schoolFlag = true;
-			List<School> schoolList = new ArrayList<>();
-			
+		boolean schoolFlag = true;
+		List<School> schoolList = new ArrayList<>();
+
 		while (flag) {
-			School s =new School();
-			
-			
+	
 
 			if (sc.nextLine().equals("y")) {
-			
+
 				System.out.println("          <add first school>");
 				System.out.println();
 				while (schoolFlag) {
-					schoolList.add(s);
-					School schoolObj = schoolList.get(schoolIndex);
+					School school = new School();
 					System.out.println("what is the location of the school ?");
-					
-					
-							schoolObj.setLocation(sc.nextLine());
-					    
+
+					school.setLocation(sc.nextLine());
+
 					System.out.println("what is the phone number of the school ?");
-					schoolObj.setPhoneNumber(sc.nextInt());
+					school.setPhoneNumber(sc.nextInt());
 					sc.nextLine();
 
-					int departmetIndex = 0;
+			
 					boolean departmetFlag = true;
+					
 					ArrayList<Department> departmentList = new ArrayList<>();
 
-					System.out.println("          <add first department> to school number :"+schoolIndex);
+					System.out.println("          <add first department> to school number :");
 					System.out.println();
 					while (departmetFlag) {
-						departmentList.add(new Department());
-						schoolObj.setDepartmentList(departmentList);
-						Department departmentObj = schoolObj.getDepartmentList().get(departmetIndex);
+						Department department =new Department();
 						System.out.println("how many floors in this department ?");
-						departmentObj.setFloor(sc.nextInt());
+						department.setFloor(sc.nextInt());
 						sc.nextLine();
 						System.out.println("what is the name of the department ?");
-						departmentObj.setName(sc.nextLine());
+						department.setName(sc.nextLine());
 
-						int teacherIndex = 0;
+		
 						boolean teacherFlag = true;
 						ArrayList<Teacher> teacherList = new ArrayList<>();
 
-						System.out.println("          <add first treacher>to school number : "+schoolIndex);
+						System.out.println("          <add first treacher>to school number : " );
 						System.out.println();
 						while (teacherFlag) {
-							teacherList.add(new Teacher());
-							departmentObj.setTeachertList(teacherList);
-							Teacher teacherObj = departmentObj.getTeachertList().get(teacherIndex);
+							Teacher teacher	=new Teacher();
+						
 							System.out.println("what is the teacher name ?");
-							teacherObj.setName(sc.nextLine());
+							teacher.setName(sc.nextLine());
 							System.out.println("what is the teacher type ?");
-							teacherObj.setType(sc.nextLine());
+							teacher.setType(sc.nextLine());
 
-							int studentIndex = 0;
+						
 							boolean studentFlag = true;
 							ArrayList<Student> studentList = new ArrayList<>();
 
 							System.out.println("          <add first student>");
 							System.out.println();
 							while (studentFlag) {
-								studentList.add(new Student());
-								teacherObj.setStudentList(studentList);
-								Student studentObj = teacherObj.getStudentList().get(studentIndex);
+								Student student=new Student();
+						
 								System.out.println("what is the studnet age ?");
-								studentObj.setAge(sc.nextInt());
+								student.setAge(sc.nextInt());
 								sc.nextLine();
 								System.out.println("what is the student name ?");
-								studentObj.setName(sc.nextLine());
+								student.setName(sc.nextLine());
 
-								int courseIndex = 0;
+						
 								boolean courseFlag = true;
 								ArrayList<Course> courseList = new ArrayList<>();
 
 								System.out.println("          <add first course>");
 								System.out.println();
 								while (courseFlag) {
-									courseList.add(new Course());
-									studentObj.setCourseList(courseList);
-									Course courseObj = studentObj.getCourseList().get(courseIndex);
+									Course course=new Course();
+						
 									System.out.println("what is the course name ?");
-									courseObj.setName(sc.nextLine());
-							
+									course.setName(sc.nextLine());
+
 									System.out.println("what is the course id ?");
-									courseObj.setId(sc.nextInt());
+									course.setId(sc.nextInt());
 									sc.nextLine();
 
-									int markIndex = 0;
+							
 									boolean markFlag = true;
 									ArrayList<Mark> markList = new ArrayList<>();
 
 									System.out.println("          <add first mark>");
 									System.out.println();
 									while (markFlag) {
-										markList.add(new Mark());
-									courseObj.setMarkList(markList);
-										Mark markObj = courseObj.getMarkList().get(markIndex);
+										Mark mark =new Mark();
 										System.out.println("what is the subject name ?");
-										String markInput =sc.nextLine();
-									
-										narkHistoryStack.push(LocalDateTime.now() +"        :" +markInput);
-										markObj.setSubjectName(markInput);
-							
-										System.out.println("what is the subject mark ?");
-										markObj.setMark(sc.nextInt());
-										sc.nextLine();
+										String markInput = sc.nextLine();
 
+										narkHistoryStack.push(LocalDateTime.now() + "        :" + markInput);
+										mark.setSubjectName(markInput);
+
+										System.out.println("what is the subject mark ?");
+										mark.setMark(sc.nextInt());
+										sc.nextLine();
+										markList.add(mark);
+										course.setMarkList(markList);
 										System.out.println("do you want to add another mark y/n?");
 										if (sc.nextLine().equals("y")) {
-											markIndex++;
+								
 										} else {
 											markFlag = false;
 											System.out.println("mark added");
 										}
 									}
+									courseList.add(course);
+									student.setCourseList(courseList);
 									System.out.println("do you want to add another course y/n?");
 									if (sc.nextLine().equals("y")) {
-										courseIndex++;
+									
 									} else {
 										courseFlag = false;
 										System.out.println("course added");
 									}
 								}
-
+								studentList.add(student);
+								teacher.setStudentList(studentList);
 								System.out.println("do you want to add another student y/n?");
 								if (sc.nextLine().equals("y")) {
-									studentIndex++;
+						
 								} else {
 									studentFlag = false;
 									System.out.println("student added");
 								}
 							}
-
+							
+							teacherList.add(teacher);
+							department.setTeachertList(teacherList);
 							System.out.println("do you want to add another teacher y/n?");
 							if (sc.nextLine().equals("y")) {
-								teacherIndex++;
+						
 							} else {
 								teacherFlag = false;
 								System.out.println("teadcher added");
 							}
 						}
-
+						
+						departmentList.add(department);
+						school.setDepartmentList(departmentList);
 						System.out.println("do you want to add another department y/n?");
 						if (sc.nextLine().equals("y")) {
-							departmetIndex++;
+				
 						} else {
 							departmetFlag = false;
 							System.out.println("department added");
 						}
 					}
+					schoolList.add(school);
+		
 					System.out.println("do you want to add another school y/n?");
 					if (sc.nextLine().equals("y")) {
-						schoolIndex++;
+					
 					} else {
 						schoolFlag = false;
 						System.out.println("school added");
@@ -256,105 +260,117 @@ int schoolIndex = 0;
 
 			} else {
 				flag = false;
-				 System.out.println("****************** school system report (for loop)******************");
-				 w.write("****************** school system report (for loop)****************** \n \n");
-			
-				for(int sci=0;sci<schoolList.size();sci++) {
-				
-					School sobj=schoolList.get(sci);
+				System.out.println("****************** school system report (for loop)******************");
+				w.write("****************** school system report (for loop)****************** \n \n");
+
+				for (int sci = 0; sci < schoolList.size(); sci++) {
+
+					School sobj = schoolList.get(sci);
 					System.out.println();
-			System.out.println(format.red+"                 school number ("+(sci+1)+")"+format.black);
-			 w.write("                 school number ("+(sci+1)+")\n ");
-			System.out.println();
-			System.out.println("school name         :"+format.blue+sobj.getLocation()+format.black);
-			 w.write("school name         :"+sobj.getLocation()+" \n ");
-			System.out.println("school phone number :"+format.blue+sobj.getPhoneNumber());
-			 w.write("school phone number :"+sobj.getLocation()+" \n \n ");
-			System.out.println();
-					for(int di=0;di<sobj.getDepartmentList().size();di++) {
-						Department dobj=sobj.getDepartmentList().get(di);
-						System.out.println(format.cyan+"department number ("+(di+1)+")"+format.black);
-						 w.write("department number ("+(di+1)+") \n ");
-						System.out.println("department floor :"+format.blue+dobj.getFloor()+format.black);
-						 w.write("department floor :"+dobj.getFloor()+ "\n ");
-						System.out.println("department name  :"+format.blue+dobj.getName());
-						 w.write("department name :"+dobj.getName()+"\n \n");
+					System.out
+							.println(format.red + "                 school number (" + (sci + 1) + ")" + format.black);
+					w.write("                 school number (" + (sci + 1) + ")\n ");
+					System.out.println();
+					System.out.println("school name         :" + format.blue + sobj.getLocation() + format.black);
+					w.write("school name         :" + sobj.getLocation() + " \n ");
+					System.out.println("school phone number :" + format.blue + sobj.getPhoneNumber());
+					w.write("school phone number :" + sobj.getLocation() + " \n \n ");
+					System.out.println();
+					for (int di = 0; di < sobj.getDepartmentList().size(); di++) {
+						Department dobj = sobj.getDepartmentList().get(di);
+						System.out.println(format.cyan + "department number (" + (di + 1) + ")" + format.black);
+						w.write("department number (" + (di + 1) + ") \n ");
+						System.out.println("department floor :" + format.blue + dobj.getFloor() + format.black);
+						w.write("department floor :" + dobj.getFloor() + "\n ");
+						System.out.println("department name  :" + format.blue + dobj.getName());
+						w.write("department name :" + dobj.getName() + "\n \n");
 						System.out.println();
-						for(int ti=0;ti<dobj.getTeachertList().size();ti++) {
-							Teacher tobj=dobj.getTeachertList().get(ti);
-							System.out.println(format.cyan+"   teacher number ("+(ti+1)+")"+format.black);
-							 w.write("   teacher number ("+(di+1)+") \n ");
-							System.out.println("   teacher name :"+format.blue+tobj.getName()+format.black);
-							 w.write("   teacher name :"+tobj.getName()+" \n ");
-							System.out.println("   teacher type :"+format.blue+tobj.getType());
-							 w.write("   teacher type :"+tobj.getType()+"\n \n ");
+						for (int ti = 0; ti < dobj.getTeachertList().size(); ti++) {
+							Teacher tobj = dobj.getTeachertList().get(ti);
+							System.out.println(format.cyan + "   teacher number (" + (ti + 1) + ")" + format.black);
+							w.write("   teacher number (" + (di + 1) + ") \n ");
+							System.out.println("   teacher name :" + format.blue + tobj.getName() + format.black);
+							w.write("   teacher name :" + tobj.getName() + " \n ");
+							System.out.println("   teacher type :" + format.blue + tobj.getType());
+							w.write("   teacher type :" + tobj.getType() + "\n \n ");
 							System.out.println();
-							for(int si=0;si<tobj.getStudentList().size();si++) {
-								Student stobj=tobj.getStudentList().get(si);
-								System.out.println(format.cyan+"      Student number("+(si+1)+")"+format.black);
-								 w.write("      Student number("+(si+1)+") \n ");
-								System.out.println("      Student name :"+format.blue+stobj.getName()+format.black);
-								 w.write("      Student name :"+stobj.getName()+" \n ");
-								System.out.println("      Student age  :"+format.blue+stobj.getAge());
-								 w.write("      Student age  :"+stobj.getAge()+"\n \n ");
+							for (int si = 0; si < tobj.getStudentList().size(); si++) {
+								Student stobj = tobj.getStudentList().get(si);
+								System.out
+										.println(format.cyan + "      Student number(" + (si + 1) + ")" + format.black);
+								w.write("      Student number(" + (si + 1) + ") \n ");
+								System.out
+										.println("      Student name :" + format.blue + stobj.getName() + format.black);
+								w.write("      Student name :" + stobj.getName() + " \n ");
+								System.out.println("      Student age  :" + format.blue + stobj.getAge());
+								w.write("      Student age  :" + stobj.getAge() + "\n \n ");
 								System.out.println();
-								for(int ci=0;ci<stobj.getCourseList().size();ci++) {
-									Course cobj=stobj.getCourseList().get(ci);
-									System.out.println(format.cyan+"         course number ("+(ci+1)+")"+format.black);
-									 w.write("         course number ("+ci+1+" \n ");
-									System.out.println("         course name :"+format.blue+cobj.getName()+format.black);
-									 w.write("         course name :"+cobj.getName()+" \n ");
-									System.out.println("         course id   :"+format.blue+cobj.getId());
-									 w.write("         course id   :"+cobj.getId()+" \n \n");
+								for (int ci = 0; ci < stobj.getCourseList().size(); ci++) {
+									Course cobj = stobj.getCourseList().get(ci);
+									System.out.println(
+											format.cyan + "         course number (" + (ci + 1) + ")" + format.black);
+									w.write("         course number (" + ci + 1 + " \n ");
+									System.out.println(
+											"         course name :" + format.blue + cobj.getName() + format.black);
+									w.write("         course name :" + cobj.getName() + " \n ");
+									System.out.println("         course id   :" + format.blue + cobj.getId());
+									w.write("         course id   :" + cobj.getId() + " \n \n");
 									System.out.println();
-									for(int mi=0;mi<cobj.getMarkList().size();mi++) {
-										Mark mobj=cobj.getMarkList().get(mi);
-										System.out.printf(format.cyan+"            mark number ( %d ) \n",(mi+1) );
-										 w.write("            mark number("+(mi+1)+") \n ");
-										System.out.println(format.black+"            mark name  :"+mobj.getSubjectName());
-										 w.write("            mark name  :"+mobj.getSubjectName()+" \n ");
-										System.out.println("            mark score :"+format.blue+mobj.getMark());
-										 w.write("            mark score :"+mobj.getMark()+" \n \n ");
+									for (int mi = 0; mi < cobj.getMarkList().size(); mi++) {
+										Mark mobj = cobj.getMarkList().get(mi);
+										System.out.printf(format.cyan + "            mark number ( %d ) \n", (mi + 1));
+										w.write("            mark number(" + (mi + 1) + ") \n ");
+										System.out.println(
+												format.black + "            mark name  :" + mobj.getSubjectName());
+										w.write("            mark name  :" + mobj.getSubjectName() + " \n ");
+										System.out.println("            mark score :" + format.blue + mobj.getMark());
+										w.write("            mark score :" + mobj.getMark() + " \n \n ");
 										System.out.println();
 									}
 								}
 							}
+						}
 					}
+					w.close();
 				}
-				      w.close();
-				}
-				
-				System.out.println(format.black+"****************** school system report (for each)******************");
-				for(School sf:schoolList) {
-					System.out.println("school name         :"+format.blue+sf.getLocation()+format.black);
-					System.out.println("school phone number :"+format.blue+sf.getPhoneNumber());
+
+				System.out
+						.println(format.black + "****************** school system report (for each)******************");
+				for (School sf : schoolList) {
+					System.out.println("school name         :" + format.blue + sf.getLocation() + format.black);
+					System.out.println("school phone number :" + format.blue + sf.getPhoneNumber());
 					System.out.println();
-					for(Department df:sf.getDepartmentList()) {
-						System.out.println("department floor :"+format.blue+df.getFloor()+format.black);
-						System.out.println("department name  :"+format.blue+df.getName());
+					for (Department df : sf.getDepartmentList()) {
+						System.out.println("department floor :" + format.blue + df.getFloor() + format.black);
+						System.out.println("department name  :" + format.blue + df.getName());
 						System.out.println();
-						for(Teacher tf:df.getTeachertList()) {
-							System.out.println("   teacher name :"+format.blue+tf.getName()+format.black);
-							System.out.println("   teacher type :"+format.blue+tf.getType());
+						for (Teacher tf : df.getTeachertList()) {
+							System.out.println("   teacher name :" + format.blue + tf.getName() + format.black);
+							System.out.println("   teacher type :" + format.blue + tf.getType());
 							System.out.println();
-							for(Student stf:tf.getStudentList()) {
-								System.out.println("      Student name :"+format.blue+stf.getName()+format.black);
-								System.out.println("      Student age  :"+format.blue+stf.getAge());
+							for (Student stf : tf.getStudentList()) {
+								System.out.println("      Student name :" + format.blue + stf.getName() + format.black);
+								System.out.println("      Student age  :" + format.blue + stf.getAge());
 								System.out.println();
-								for(Course ctf:stf.getCourseList()) {
-									System.out.println("         course name :"+format.blue+ctf.getName()+format.black);
-									System.out.println("         course id   :"+format.blue+ctf.getId()+format.black);
-									
+								for (Course ctf : stf.getCourseList()) {
+									System.out.println(
+											"         course name :" + format.blue + ctf.getName() + format.black);
+									System.out.println(
+											"         course id   :" + format.blue + ctf.getId() + format.black);
+
 									System.out.println();
-									for(Mark mf:ctf.getMarkList()) {
-										System.out.println("            mark name  :"+format.blue+mf.getSubjectName()+format.black);
-										System.out.println("            mark score :"+format.blue+mf.getMark()+format.black);
-										System.out.println("         the gpa     :"+format.blue+mf.getGpa(ctf.getMarkList()));
+									for (Mark mf : ctf.getMarkList()) {
+										System.out.println("            mark name  :" + format.blue
+												+ mf.getSubjectName() + format.black);
+										System.out.println(
+												"            mark score :" + format.blue + mf.getMark() + format.black);
+										System.out.println(
+												"         the gpa     :" + format.blue + mf.getGpa(ctf.getMarkList()));
 										System.out.println();
-										
+
 										FileOutputStream ff = new FileOutputStream(new File("myObjects.txt"));
 										ObjectOutputStream o = new ObjectOutputStream(ff);
-							
+
 										// Write objects to file
 										o.writeObject(mf);
 
@@ -363,46 +379,87 @@ int schoolIndex = 0;
 
 										FileInputStream fi = new FileInputStream(new File("myObjects.txt"));
 										ObjectInputStream oi = new ObjectInputStream(fi);
-									    
+
 										// Read objects
 										Mark pr1 = (Mark) oi.readObject();
-									
-										
-									
-System.out.println("the out put from the saved opjects : ");
-										System.out.println(pr1.getMark() +"\n");
-							
+
+										System.out.println("the out put from the saved opjects : ");
+										System.out.println(pr1.getMark() + "\n");
 
 										oi.close();
 										fi.close();
 
-										
-									}	
-								}	
-								
+									}
+								}
+
 							}
-							
+
 						}
 					}
-					
-					
+
 				}
 			}
-		
 
 		} // while loop
-		
 
-		System.out.println(format.black+"************************************");
+		System.out.println(format.black + "************************************");
 		System.out.print("do you want to show the mark subjects history y/n?   ");
-		if(sc.nextLine().equals("y")) {
-		
+		if (sc.nextLine().equals("y")) {
+
 			School.history(narkHistoryStack);
-		}
-		else {
+		} else {
 			System.out.println("ok fine no history");
 		}
 	}
-	
-	
+
 }
+
+//
+//Scanner sc = new Scanner(System.in);
+//ArrayList<String> usersInput = new ArrayList<>();
+//Random random = new Random();
+//boolean listFlag=true;
+//
+//
+//
+//System.out.println("enter words you want to add to your list and then to file ");
+//while(listFlag) {
+//usersInput.add(sc.nextLine());
+//System.out.print("do you want to add another word y/n?   ");
+//if(sc.nextLine().toLowerCase().endsWith("y")) {
+//listFlag=true;
+//System.out.println("type the new word");
+//}else {
+//listFlag=false;
+//}
+//
+//}
+//
+//
+//for(Integer i =0 ;i<100;i++) {
+//	try {
+//
+//	File createPdf = new File("FileNo"+(i.toString())+".pdf");
+//
+//    if (createPdf.createNewFile()) {
+//        System.out.println("File created: " + createPdf.getName());
+//      } else {
+//        System.out.println("File already exists.");
+//        System.out.println( createPdf.getPath());
+//       
+//      }
+//	}
+//catch (IOException e) {
+//      System.out.println("An error occurred.");
+//      e.printStackTrace();
+//    }
+//
+//	 FileWriter  writeToPDF = new FileWriter("FileNo"+(i.toString())+".pdf");
+//	 int index = random.nextInt(usersInput.size());
+//	
+//	 writeToPDF.write(usersInput.get(index));
+//
+//	 writeToPDF.close();
+//}
+//
+//}

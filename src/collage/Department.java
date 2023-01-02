@@ -11,7 +11,7 @@ public class Department implements Serializable {
 	private int floor;
 
 	
-	private ArrayList<Teacher> teachertList = new ArrayList<>();
+	private ArrayList<Teacher> teachertList;
 //----------------------- seters and geters-------------------------
 	
 	public String getName() {

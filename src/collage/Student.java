@@ -11,7 +11,7 @@ public class Student implements Serializable {
 	private int age;
 
 	
-	private ArrayList<Course> courseList = new ArrayList<>();
+	private ArrayList<Course> courseList;
 //----------------------- seters and geters-------------------------	
 	
 	public String getName() {

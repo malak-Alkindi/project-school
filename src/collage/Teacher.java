@@ -11,7 +11,7 @@ public class Teacher implements Serializable {
 	private String name;
 	
 	
-	private ArrayList<Student> studentList = new ArrayList<>();
+	private ArrayList<Student> studentList;
 //----------------------- seters and geters-------------------------	
 	
 	public String getType() {

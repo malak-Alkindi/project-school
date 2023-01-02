@@ -8,7 +8,7 @@ public class Course implements Serializable {
 	private String name;
 	private int id;
 
-	private ArrayList<Mark> markList = new ArrayList<>();
+	private ArrayList<Mark> markList ;
 //----------------------- seters and geters-------------------------	
 	
 	public String getName() {

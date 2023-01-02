@@ -7,9 +7,9 @@ import java.util.Stack;
 public class School implements Serializable {
 
 	private String location;
-	private int phoneNumber;
+	private Integer phoneNumber;
 	
-	private ArrayList<Department> departmentList = new ArrayList<>();
+	private ArrayList<Department> departmentList;
 School(){System.out.println("do you want to create school system y/n");}
 	//----------------------- seters and geters-------------------------
 
