@@ -32,6 +32,11 @@ public class Teacher implements Serializable ,Assigning{
 	public void setStudentList(ArrayList<Student> studentList) {
 		this.studentList = studentList;
 	}
+	@Override
+	public void introduceToDepartment() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
